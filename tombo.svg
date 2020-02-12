@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<line x1="10mm" y1="0" x2="10mm" y2="8mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="159mm" y1="0" x2="159mm" y2="8mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="0" y1="10mm" x2="8mm" y2="10mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="169mm" y1="10mm" x2="161mm" y2="10mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	
+	<line x1="10mm" y1="126mm" x2="10mm" y2="118mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="159mm" y1="126mm" x2="159mm" y2="118mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="0" y1="116mm" x2="8mm" y2="116mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+	<line x1="169mm" y1="116mm" x2="161mm" y2="116mm" stroke="black" ff0cstroke-width="0.5pt"></line>
+</svg>
