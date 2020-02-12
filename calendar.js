@@ -2,21 +2,21 @@
 //	ロード時
 //
 function body_OnLoad() {
-	// 現在の年を取得してデフォルト入力
-	var iYear = new Date().getFullYear();
-	document.getElementById("tbx_Year").value = iYear;
-	populateCalendars(iYear);
-	return;
+ // 現在の年を取得してデフォルト入力
+ var iYear = new Date().getFullYear();
+ document.getElementById("tbx_Year").value = iYear;
+ populateCalendars(iYear);
+ return;
 }
 //
 //	クリック時
 //
 function tbx_Year_Enter(){
-	if (event.keyCode == 13){
-		var iYear = document.getElementById("tbx_Year").value;
-		populateCalendars(iYear);
-	}
-	return;
+ if (event.keyCode == 13){
+  var iYear = document.getElementById("tbx_Year").value;
+  populateCalendars(iYear);
+ }
+ return;
 }
 
 
@@ -24,26 +24,61 @@ function tbx_Year_Enter(){
 //	表作成
 //
 function populateCalendars(iYear) {
-	
-	var divPrint = document.getElementById("divPrint");
+ 
+ var divPrint = document.getElementById("divPrint");
  
  // 一旦画面上の印刷用 div 内を全てクリア
-	while(divPrint.firstChild){
-		divPrint.removeChild(divPrint.firstChild);
-	}
-	
-	for(var iMonth = 1; iMonth <= 12; iMonth++){
-		var secNthMonth = document.getElementById("secTemplate").cloneNode(true);
-		secNthMonth.id = "sec" + iMonth;
-		// カレンダーに日付を記入
-//		fillCalendar(secNthMonth, iYear, iMonth);
+ while(divPrint.firstChild){
+  divPrint.removeChild(divPrint.firstChild);
+ }
+ 
+ for(var iMonth = 1; iMonth <= 12; iMonth++){
+  var secNthMonth = document.getElementById("secTemplate").cloneNode(true);
+  secNthMonth.id = "sec" + iMonth;
+  // カレンダーに日付を記入
+  fillCalendar(secNthMonth, iYear, iMonth);
   // メモ欄を作成
 //		createMemoField(secNthMonth);
 
 // ページセクションをアペンド
-		divPrint.appendChild(secNthMonth);
-		if(iMonth%2==0 && iMonth != 12){
-		}
-	}
-	return;
+  divPrint.appendChild(secNthMonth);
+  if(iMonth%2==0 && iMonth != 12){
+  }
+ }
+ return;
 }
+
+//
+//	カレンダーに月、日付を記入する
+//
+function fillCalendar(secNthMonth, iYear, iMonth){
+
+ // 月ヘッダの入力と位置合わせ
+ // secNthMonth.childNodes[1] は h1。
+ secNthMonth.childNodes[1].innerText = iMonth;
+ secNthMonth.childNodes[1].style.marginTop = (7 + 7.3*(iMonth-1)) + "mm";
+ /*
+ var dFirst = new Date(iYear,iMonth-1,1);
+ var dLast = (iMonth==12)? new Date(iYear+1,0,0): new Date(iYear,iMonth,0);
+ // node に tbody を設定
+ var node = secNthMonth.childNodes[1].childNodes[3].childNodes[3];
+ 
+ var iDayNum = 1;
+ for (var iRow = 1; iRow <= 6; iRow++){
+  for (var iCol = 1; iCol <=7; iCol++){
+   // 範囲に入っていたら日付カウントを入力、休日なら休日マークをつける
+   if(dFirst.getDay() <= 7*(iRow - 1)+iCol-1 && 7*(iRow - 1)+iCol-1 <= dFirst.getDay()+dLast.getDate()-1){
+    // 日付
+    node.childNodes[2*iRow-1].childNodes[2*iCol-1].innerText = iDayNum;
+    // 休日マーク
+    if (iCol == 1 || iCol==7) {
+  node.childNodes[2*iRow-1].childNodes[2*iCol-1].className += " Holiday";
+    }
+    iDayNum++;
+   }
+  }
+ }
+*/
+ return;
+}
+   
