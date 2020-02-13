@@ -1,4 +1,4 @@
-article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
+﻿article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 /* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
 body {

@@ -40,9 +40,9 @@ function populateCalendars(iYear) {
   // カレンダーに日付を記入
   fillCalendar(secNthMonth, iYear, iMonth);
   // メモ欄を作成
- createMemoField(secNthMonth);
+  createMemoField(secNthMonth);
 
-// ページセクションをアペンド
+  // ページセクションをアペンド
   divPrint.appendChild(secNthMonth);
   if(iMonth%2==0 && iMonth != 12){
   }
@@ -75,7 +75,7 @@ function fillCalendar(secNthMonth, iYear, iMonth){
     tbCalendar.childNodes[2*iRow-1].childNodes[2*iCol-1].innerText = iDayNum;
     // 休日マーク
     if (iCol == 1 || iCol==7) {
-      tbCalendar.childNodes[2*iRow-1].childNodes[2*iCol-1].className += " Holiday";
+     tbCalendar.childNodes[2*iRow-1].childNodes[2*iCol-1].className += " Holiday";
     }
     iDayNum++;
    }
@@ -88,17 +88,16 @@ function fillCalendar(secNthMonth, iYear, iMonth){
 //	メモフィールドの作成
 //
 function createMemoField(secNthMonth) {
-  // node に tbody を設定
-  var tbCalendar = secNthMonth.childNodes[3].childNodes[3];
-  if (tbCalendar.childNodes[2*6-1].childNodes[1].innerText == "") {
-    tbCalendar.childNodes[2*6-1].childNodes[1].innerText = "Memo";
-   for (var iCol = 1; iCol <=6; iCol++){
-    tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderR";
-   }
-   for (var iCol = 2; iCol <=7; iCol++){
-    tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderL";
-   }
+ // node に tbody を設定
+ var tbCalendar = secNthMonth.childNodes[3].childNodes[3];
+ if (tbCalendar.childNodes[2*6-1].childNodes[1].innerText == "") {
+  tbCalendar.childNodes[2*6-1].childNodes[1].innerText = "Memo";
+  for (var iCol = 1; iCol <=6; iCol++){
+   tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderR";
   }
-  return;
+  for (var iCol = 2; iCol <=7; iCol++){
+   tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderL";
+  }
  }
- 
+ return;
+}
