@@ -40,7 +40,7 @@ function populateCalendars(iYear) {
   // カレンダーに日付を記入
   fillCalendar(secNthMonth, iYear, iMonth);
   // メモ欄を作成
-	createMemoField(secNthMonth);
+ createMemoField(secNthMonth);
 
 // ページセクションをアペンド
   divPrint.appendChild(secNthMonth);
