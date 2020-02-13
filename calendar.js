@@ -6,16 +6,18 @@ function body_OnLoad() {
  var iYear = new Date().getFullYear();
  document.getElementById("tbx_Year").value = iYear;
  populateCalendars(iYear);
+ document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
  return;
 }
 //
-//	クリック時
+//	Enter 時
 //
 function tbx_Year_Enter(){
  if (event.keyCode == 13){
   var iYear = document.getElementById("tbx_Year").value;
   populateCalendars(iYear);
  }
+ document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
  return;
 }
 
@@ -38,7 +40,7 @@ function populateCalendars(iYear) {
   // カレンダーに日付を記入
   fillCalendar(secNthMonth, iYear, iMonth);
   // メモ欄を作成
-//		createMemoField(secNthMonth);
+	createMemoField(secNthMonth);
 
 // ページセクションをアペンド
   divPrint.appendChild(secNthMonth);
@@ -57,28 +59,46 @@ function fillCalendar(secNthMonth, iYear, iMonth){
  // secNthMonth.childNodes[1] は h1。
  secNthMonth.childNodes[1].innerText = iMonth;
  secNthMonth.childNodes[1].style.marginTop = (7 + 7.3*(iMonth-1)) + "mm";
- /*
+ 
  var dFirst = new Date(iYear,iMonth-1,1);
  var dLast = (iMonth==12)? new Date(iYear+1,0,0): new Date(iYear,iMonth,0);
  // node に tbody を設定
- var node = secNthMonth.childNodes[1].childNodes[3].childNodes[3];
- 
+ var tbCalendar = secNthMonth.childNodes[3].childNodes[3];
+  
  var iDayNum = 1;
  for (var iRow = 1; iRow <= 6; iRow++){
   for (var iCol = 1; iCol <=7; iCol++){
    // 範囲に入っていたら日付カウントを入力、休日なら休日マークをつける
    if(dFirst.getDay() <= 7*(iRow - 1)+iCol-1 && 7*(iRow - 1)+iCol-1 <= dFirst.getDay()+dLast.getDate()-1){
     // 日付
-    node.childNodes[2*iRow-1].childNodes[2*iCol-1].innerText = iDayNum;
+    // ここは結構トリッキー。td や tr との間のホワイトスペースを子要素カウントしているのでこの式になる。
+    tbCalendar.childNodes[2*iRow-1].childNodes[2*iCol-1].innerText = iDayNum;
     // 休日マーク
     if (iCol == 1 || iCol==7) {
-  node.childNodes[2*iRow-1].childNodes[2*iCol-1].className += " Holiday";
+      tbCalendar.childNodes[2*iRow-1].childNodes[2*iCol-1].className += " Holiday";
     }
     iDayNum++;
    }
   }
  }
-*/
  return;
 }
-   
+
+//
+//	メモフィールドの作成
+//
+function createMemoField(secNthMonth) {
+  // node に tbody を設定
+  var tbCalendar = secNthMonth.childNodes[3].childNodes[3];
+  if (tbCalendar.childNodes[2*6-1].childNodes[1].innerText == "") {
+    tbCalendar.childNodes[2*6-1].childNodes[1].innerText = "Memo";
+   for (var iCol = 1; iCol <=6; iCol++){
+    tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderR";
+   }
+   for (var iCol = 2; iCol <=7; iCol++){
+    tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderL";
+   }
+  }
+  return;
+ }
+ 
