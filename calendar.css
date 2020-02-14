@@ -40,7 +40,7 @@ header {
 
 /* 主部 */
 main {
- border: 1px red dashed;
+/* border: 1px red dashed; */
 }
 section.Sheet { /* 用紙 */
  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
@@ -120,5 +120,6 @@ td {
 
 /* フッタ部 */
 footer {
- border: 1px navy dashed;
+/* border: 1px navy dashed; */
+ background-color: black;
 }
