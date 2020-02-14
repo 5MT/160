@@ -1,5 +1,8 @@
 ﻿article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
+/* あまり意味ないっぽい設定 */
+@page {size: 148mm 105mm;}
+
 /* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
 body {
  margin: 0;
@@ -16,41 +19,62 @@ footer {
 }
 
 /* 外観 */
-body {
- background: #eee;
+@media screen {
+ body {
+  background: #eee;
+ }
 }
+
 /* ヘッダ部 */
-header {
-/* border: 1px red dotted; */
- font-family:sans-serif;
- margin: 5px;
- padding:10px 15px;
- color:white;
- background-color:black;
- border-radius:8px;
+@media screen {
+ header {
+ /* border: 1px red dotted; */
+  font-family:sans-serif;
+  margin: 5px;
+  padding:10px 15px;
+  color:white;
+  background-color:black;
+  border-radius:8px;
+ }
+ .small-letters {
+  font-size:60%;
+ }
+ #tbx_Year {
+  width:40px;
+  text-align:center;
+  margin-left:50px;
+ }
 }
-.small-letters {
- font-size:60%;
-}
-#tbx_Year {
- width:40px;
- text-align:center;
- margin-left:50px;
+@media print {
+ header {display:none;}
 }
 
 /* 主部 */
+/*
 main {
-/* border: 1px red dashed; */
+ border: 1px red dashed; 
 }
-section.Sheet { /* 用紙 */
- display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
- flex-direction: row-reverse;
- border:0.5pt gray dashed;
- background-color:white;
- height:105mm; /* A6 ヨコ */
- width:149mm; /* A6 ヨコ */
- margin:5mm;
- box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+*/
+@media screen {
+ section.Sheet { /* 用紙 */
+  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
+  flex-direction: row-reverse;
+  background-color:white;
+  height:105mm; /* A6 ヨコ */
+  width:148mm; /* A6 ヨコ */
+  margin:5mm;
+  box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+ }
+}
+@media print {
+ section.Sheet { /* 用紙 */
+  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
+  flex-direction: row-reverse;
+  background-color:white;
+  height:105mm; /* A6 ヨコ */
+  width:148mm; /* A6 ヨコ */
+  page-break-after: always;
+ }
 }
 /* 月見出し */
 h1.Tab {
@@ -119,7 +143,14 @@ td {
 }
 
 /* フッタ部 */
-footer {
-/* border: 1px navy dashed; */
- background-color: black;
+@media screen {
+ footer {
+ /* border: 1px navy dashed; */
+  background-color: black;
+ }
+}
+@media print {
+ footer{
+  display: none;
+ }
 }
