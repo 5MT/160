@@ -1,7 +1,10 @@
 ﻿article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 /* あまり意味ないっぽい設定 */
-@page {size: 148mm 105mm;}
+@page {
+ margin: 0;
+ size: 148mm 105mm;
+}
 
 /* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
 body {
