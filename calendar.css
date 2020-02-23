@@ -111,8 +111,8 @@ th {
  border:0;
  font-family:'Times New Roman', serif;
  font-size:7pt;
- border-top:0.5px black solid;
- border-right:0.5px black solid;
+ border-top:0.5px gray solid;
+ border-right:0.5px gray solid;
 }
 th.HeadHoliday {
  color:white;
@@ -122,18 +122,18 @@ th.HeadHoliday {
 td {
  width:16mm;
  font-family:'Times New Roman', serif;
- border-top:0.5px black solid;
- border-right:0.5px black solid;
+ border-top:0.5px gray solid;
+ border-right:0.5px gray solid;
  height:13.2mm;
  vertical-align:top;
  padding:0.5mm 1mm;
  font-size:7pt;
 }
 .LeftEnd {
- border-left:0.5px black solid;
+ border-left:0.5px gray solid;
 }
 .BottomEnd {
- border-bottom:0.5px black solid;
+ border-bottom:0.5px gray solid;
 }
 .NoBorderR {
  border-right:0;
