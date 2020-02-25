@@ -5,8 +5,8 @@ function body_OnLoad() {
  // 現在の年を取得してデフォルト入力
  var iYear = new Date().getFullYear();
  document.getElementById("tbx_Year").value = iYear;
- populateCalendars(iYear);
- document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
+// populateCalendars(iYear);
+// document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
  return;
 }
 //
