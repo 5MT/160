@@ -5,8 +5,8 @@ function body_OnLoad() {
  // 現在の年を取得してデフォルト入力
  var iYear = new Date().getFullYear();
  document.getElementById("tbx_Year").value = iYear;
-// populateCalendars(iYear);
-// document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
+ populateCalendars(iYear);
+ document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
  return;
 }
 //
@@ -34,18 +34,22 @@ function populateCalendars(iYear) {
   divPrint.removeChild(divPrint.firstChild);
  }
  
- for(var iMonth = 1; iMonth <= 12; iMonth++){
-  var secNthMonth = document.getElementById("secTemplate").cloneNode(true);
-  secNthMonth.id = "sec" + iMonth;
+ for(var iPage = 1; iPage <= 6; iPage++){
+  var secNthPage = document.getElementById("secTemplate").cloneNode(true);
+  secNthPage.id = "secPage" + iPage;
+  secNthPage.childNodes[1].id = `secMonth${iPage*2-1}`;
+  secNthPage.childNodes[3].id = `secMonth${iPage*2}`;
   // カレンダーに日付を記入
-  fillCalendar(secNthMonth, iYear, iMonth);
+  fillCalendar(secNthPage.childNodes[1], iYear, iPage*2-1);
+  fillCalendar(secNthPage.childNodes[3], iYear, iPage*2);
   // メモ欄を作成
-  createMemoField(secNthMonth);
+  createMemoField(secNthPage.childNodes[1]);
+  createMemoField(secNthPage.childNodes[3]);
 
   // ページセクションをアペンド
-  divPrint.appendChild(secNthMonth);
-  if(iMonth%2==0 && iMonth != 12){
-  }
+  divPrint.appendChild(secNthPage);
+//  if(iPage%2==0 && iPage != 6){
+//  }
  }
  return;
 }

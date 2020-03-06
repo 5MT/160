@@ -3,7 +3,7 @@
 /* あまり意味ないっぽい設定 */
 @page {
  margin: 0;
- size: 294mm 110mm;
+ size: 297mm 210mm;
 }
 
 /* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
@@ -60,24 +60,28 @@ main {
 */
 @media screen {
  section.Sheet { /* 用紙 */
-  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
-  flex-direction: row-reverse;
   background-color:white;
-  height:105mm; /* A6 ヨコ */
-  width:148mm; /* A6 ヨコ */
+  height:210mm; /* A4 ヨコ */
+  width:297mm; /* A6 ヨコ */
   margin:5mm;
   box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
  }
 }
 @media print {
  section.Sheet { /* 用紙 */
-  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
-  flex-direction: row-reverse;
   background-color:white;
-  height:105mm; /* A6 ヨコ */
-  width:148mm; /* A6 ヨコ */
+  height:210mm; /* A4 ヨコ */
+  width:297mm; /* A4 ヨコ */
   page-break-after: always;
  }
+}
+/* 月セクション */
+section.Month {
+/* border: 1px red dashed; */
+ display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
+ flex-direction: row-reverse;
+ height:105mm; /* A4 ヨコ */
+ width:148mm; /* A6 ヨコ */
 }
 /* 月見出し */
 h1.Tab {
