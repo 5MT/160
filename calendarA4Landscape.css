@@ -81,7 +81,7 @@ section.Month {
  display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
  flex-direction: row-reverse;
  height:105mm; /* A4 ヨコ */
- width:148mm; /* A6 ヨコ */
+ width:149mm; /* A6 ヨコ */
 }
 /* 月見出し */
 h1.Tab {
@@ -106,7 +106,8 @@ table.Calendar {
  border-collapse:collapse;
  margin:7mm 0 0 0;
  width:126mm;
- height:88.5mm;
+/* height:88.5mm; */
+ height:90.0mm; */
 }
 /* カレンダー表ヘッダ */
 th {
@@ -128,7 +129,7 @@ td {
  font-family:'Times New Roman', serif;
  border-top:0.5px gray solid;
  border-right:0.5px gray solid;
- height:13.2mm;
+/* height:14.0mm; */
  vertical-align:top;
  padding:0.5mm 1mm;
  font-size:7pt;

@@ -102,7 +102,7 @@ table.Calendar {
  border-collapse:collapse;
  margin:7mm 0 0 0;
  width:126mm;
- height:88.5mm;
+ height:90.0mm;
 }
 /* カレンダー表ヘッダ */
 th {
@@ -124,7 +124,7 @@ td {
  font-family:'Times New Roman', serif;
  border-top:0.5px gray solid;
  border-right:0.5px gray solid;
- height:13.2mm;
+/* height:13.2mm; */
  vertical-align:top;
  padding:0.5mm 1mm;
  font-size:7pt;
