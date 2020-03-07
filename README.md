@@ -1,6 +1,6 @@
 ﻿# 160
-Calender generator for maruman S16x pocket croquis book
-マルマン S16x ポケットカレンダー添付向けカレンダーの型紙
+## Calender generator for maruman S16x pocket croquis book
+## マルマン S16x ポケットカレンダー添付向けカレンダーの型紙
 
 * How to use : print the HTML file and staple them to grue on the back cover of the croquis book.
   calendar.html was for one month per one Jpn A6-size paper
